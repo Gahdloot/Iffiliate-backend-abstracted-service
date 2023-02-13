@@ -23,6 +23,12 @@ class LogisticPrice(models.Model):
     company = models.OneToOneField(LogisticCompany, on_delete=models.CASCADE)
     value_per_goods = models.DecimalField(max_digits=5, decimal_places=2, default=0.01)
     price_per_weight = models.DecimalField(max_digits=5, decimal_places=2, default=0.01)
+
+
+    @property
+    def company_name(self):
+        return self.company.name
+
     def price(self, value, weight):
         total_value = self.value_per_goods * value
         total_weight = self.price_per_weight * weight
