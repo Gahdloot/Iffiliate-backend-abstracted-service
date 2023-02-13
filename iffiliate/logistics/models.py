@@ -53,8 +53,12 @@ class Rider(models.Model):
     when an order is booked a dispatch rider from the model holds the information of the dispatch
     """
     company = models.ForeignKey(LogisticCompany, on_delete=models.CASCADE)
-    name = models.CharField(max_length=75)
+    phone_number = models.CharField(max_length=240, null=True, blank=True)
     number = models.IntegerField(default=0)
+
+    @property
+    def company_name(self):
+        return self.company.name
 
 
 
