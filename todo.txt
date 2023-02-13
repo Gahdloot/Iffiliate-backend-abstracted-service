@@ -1,0 +1,59 @@
+Affiliate Backend Service
+Objectives:
+To abstract core features into Django apps,
+Features to abstract:
+Vendor: this is the vendors page  / profile
+Admin: this is the admin page/profile
+Logistics: this is the logistics page/profile
+
+Admin(
+Major duty is to collect orders and give orders to the dispatch rider .. and also update the order status)
+Who can access admin: (iffilaite staff)
+What can admin do
+Handle status o different orders that the shops want iiffilate to handle
+When order comes to the store the admin should be able to change order status
+Iffilate having logics Pricing System which is slighly above the original logics pricing
+Analytics
+How much iffialte has made
+If affiliate is handling logistic…there should be a way to get the dispatcher rider info and company info
+A table that consist of(table should have info of buyer and seller)
+Pending orders
+Ready for dispatch
+Delivered
+The Admin should have a boolean field to confirm so the money can enter the vendor wallet
+
+Vendor
+
+
+
+Logistics
+Logistics module is suppose to hold all the complexities and abstarct them away from other modules
+
+Suggestions
+Logistics model
+fieds(
+#logistics company name,
+#phone number,
+#address,
+area covered,
+#price per weight,
+#location,
+#price per location,
+#dispatch information,
+#{maybe list of riders and riders information},
+newfiled{order, payment, date},
+sum payment,
+#value per worth of goods)
+
+Logistic View include
+Routes returned to the end user include a List of areas covered,   list of Price(based on the cheapest location avaliable), price based on products weight and size, value per worth of goods
+
+Routes returned for admin include list of companies, informations, dispatch riders information, company original price, agreed customer price.
+
+
+
+Later Feature after Problem Has Been fixed
+Every user needs a favorite list of shop(were they easily access saved shops).
+
+
+…

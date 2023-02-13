@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework'
+    'rest_framework',
+    'logistics',
+    'vendor'
 ]
 
 MIDDLEWARE = [
@@ -76,8 +78,13 @@ WSGI_APPLICATION = 'iffiliate.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '6KaVMYcbK016jQIgsBYw',
+        'HOST': 'containers-us-west-175.railway.app',
+        'PORT': '8004',
     }
 }
 
