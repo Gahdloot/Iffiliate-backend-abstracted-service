@@ -10,7 +10,7 @@ from decimal import Decimal
 
 class LogisticCompany(models.Model):
     name = models.CharField(max_length=240)
-    phone_number = models.CharField(max_length=240, null=True, blank=True)
+    phone_number = models.CharField(max_length=16, null=True, blank=True)
     address = models.TextField()
 
 
@@ -53,8 +53,8 @@ class Rider(models.Model):
     when an order is booked a dispatch rider from the model holds the information of the dispatch
     """
     company = models.ForeignKey(LogisticCompany, on_delete=models.CASCADE)
-    phone_number = models.CharField(max_length=240, null=True, blank=True)
-    number = models.IntegerField(default=0)
+    name = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=16, null=True, blank=True)
 
     @property
     def company_name(self):

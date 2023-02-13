@@ -13,4 +13,8 @@ class LogisticPriceSerializer(serializers.ModelSerializer):
         fields = ['company_name', 'value_per_goods', 'price_per_weight']
 
 
+class RidersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Rider
+        fields = ['company_name', 'name', 'phone_number']
 
