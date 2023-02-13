@@ -9,7 +9,7 @@ from decimal import Decimal
 
 
 class LogisticCompany(models.Model):
-    name = models.CharField(max_length=240)
+    name = models.CharField(max_length=120, unique=True)
     phone_number = models.CharField(max_length=16, null=True, blank=True)
     address = models.TextField()
 
@@ -44,6 +44,10 @@ class Dispatch(models.Model):
     state = models.CharField(max_length=75)
     city = models.CharField(max_length=75)
     price = models.IntegerField(default=0)
+
+    @property
+    def company_name(self):
+        return self.company.name
 
 
 
