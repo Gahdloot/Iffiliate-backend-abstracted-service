@@ -51,9 +51,14 @@ class SingleInfo:
         serialized_data = companies_price.data
         return serialized_data
 
-    def location(self):
+    def locations(self):
         locations = Location.objects.filter(company=self.company)
         locations = LocationSerializer(data=locations, many=True)
         serialized_data = locations.data
         return serialized_data
 
+    def riders(self):
+        riders = Rider.objects.filter(company=self.company)
+        riders = RidersSerializer(data=riders, many=True)
+        serialized_data = riders.data
+        return serialized_data
