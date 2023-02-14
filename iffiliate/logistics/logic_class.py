@@ -1,30 +1,30 @@
-from .models import LogisticCompany, LogisticPrice, Dispatch, Rider
+from .models import LogisticCompany, LogisticPrice, Location, Rider
 from .serializers import LogisticCompanySerializer, LogisticPriceSerializer, RidersSerializer, DispatchSerializer
 # Create your views here.
 
 
 class AllInfo:
 
-    def Companies(self):
+    def companies(self):
         companies = LogisticCompany.objects.all()
         companies = LogisticCompanySerializer(data=companies, many=True)
         serialized_data = companies.data
         return serialized_data
 
-    def Companies_price(self):
+    def companies_price(self):
         companies_price = LogisticPrice.objects.all()
         companies_price = LogisticPriceSerializer(data=companies_price, many=True)
         serialized_data = companies_price.data
         return serialized_data
 
-    def Rider(self):
+    def rider(self):
         riders = Rider.objects.all()
         riders = RidersSerializer(data=riders, many=True)
         serialized_data = riders.data
         return serialized_data
 
-    def Dispatch(self):
-        dispatch = Dispatch.objects.all()
+    def location(self):
+        dispatch = Location.objects.all()
         dispatch = DispatchSerializer(data=dispatch, many=True)
         serialized_data = dispatch.data
         return serialized_data
@@ -42,11 +42,15 @@ class SingleInfo:
             raise LookupError('company\'s name doesnot exist')
         self.company = company
 
-    def Company(self):
+    def company(self):
         company = LogisticCompanySerializer(data=self.company)
         serialized_data = company.data
-    def Companies_price(self):
+    def companies_price(self):
         companies_price = LogisticPrice.objects.get(company=self.company)
         companies_price = LogisticPriceSerializer(data=companies_price)
         serialized_data = companies_price.data
         return serialized_data
+
+    def location(self):
+        pass
+

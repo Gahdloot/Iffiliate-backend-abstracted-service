@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import LogisticCompany, LogisticPrice, Dispatch, Rider
+from .models import LogisticCompany, LogisticPrice, Location, Rider
 
 
 class LogisticCompanySerializer(serializers.ModelSerializer):
@@ -20,5 +20,5 @@ class RidersSerializer(serializers.ModelSerializer):
 
 class DispatchSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Dispatch
+        model = Location
         fields = ['company_name', 'country', 'state', 'city', 'price']

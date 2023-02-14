@@ -35,7 +35,7 @@ class LogisticPrice(models.Model):
         return total_value + total_weight
 
 
-class Dispatch(models.Model):
+class Location(models.Model):
     """
     this collect the price per location of specific companies
     """
