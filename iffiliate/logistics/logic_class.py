@@ -1,5 +1,5 @@
 from .models import LogisticCompany, LogisticPrice, Location, Rider
-from .serializers import LogisticCompanySerializer, LogisticPriceSerializer, RidersSerializer, DispatchSerializer
+from .serializers import LogisticCompanySerializer, LogisticPriceSerializer, RidersSerializer, LocationSerializer
 # Create your views here.
 
 
@@ -52,5 +52,8 @@ class SingleInfo:
         return serialized_data
 
     def location(self):
-        pass
+        locations = Location.objects.filter(company=self.company)
+        locations = LocationSerializer(data=locations, many=True)
+        serialized_data = locations.data
+        return serialized_data
 
