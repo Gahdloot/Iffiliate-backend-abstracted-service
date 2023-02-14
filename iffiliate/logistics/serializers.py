@@ -18,7 +18,7 @@ class RidersSerializer(serializers.ModelSerializer):
         model = Rider
         fields = ['company_name', 'name', 'phone_number']
 
-class DispatchSerializer(serializers.ModelSerializer):
+class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
         fields = ['company_name', 'country', 'state', 'city', 'price']

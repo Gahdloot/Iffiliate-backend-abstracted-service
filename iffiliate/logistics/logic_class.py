@@ -25,7 +25,7 @@ class AllInfo:
 
     def location(self):
         dispatch = Location.objects.all()
-        dispatch = DispatchSerializer(data=dispatch, many=True)
+        dispatch = LocationSerializer(data=dispatch, many=True)
         serialized_data = dispatch.data
         return serialized_data
 
