@@ -62,3 +62,40 @@ class SingleInfo:
         riders = RidersSerializer(data=riders, many=True)
         serialized_data = riders.data
         return serialized_data
+
+
+class Calculate_bill:
+
+    iffiliate_comission = 300
+
+    def __init__(self,company_name, value, weight, city):
+        self.weight = weight
+        self.value = value
+        self.city = city
+        self.name = company_name
+
+        if company_name is None:
+            raise NameError('company\'s name cannot be None ')
+        try:
+            company = LogisticCompany.objects.get(name=company_name)
+        except LogisticCompany.DoesNotExist:
+            raise LookupError('company\'s name doesnot exist')
+        self.company = company
+
+    def _get_price(self):
+        _logistic_price = LogisticPrice.objects.get(company=self.company)
+        logistic_price = _logistic_price.price(self.value, self.weight)
+        _location_price = Location.objects.get(company=self.company, city=self.city)
+        location_price = _location_price.price
+        return logistic_price + location_price
+
+
+    def checkout_logistics(self):
+
+        return Calculate_bill.iffiliate_comission + self._get_price()
+
+    @classmethod
+    def change_comission(cls, comission):
+        Calculate_bill.iffiliate_comission = comission
+        return True
+
