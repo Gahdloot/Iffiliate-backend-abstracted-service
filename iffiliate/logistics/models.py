@@ -43,6 +43,7 @@ class Location(models.Model):
     country = models.CharField(max_length=75)
     state = models.CharField(max_length=75)
     city = models.CharField(max_length=75)
+    address = models.CharField(max_length=300)
     price = models.IntegerField(default=0)
 
     @property
