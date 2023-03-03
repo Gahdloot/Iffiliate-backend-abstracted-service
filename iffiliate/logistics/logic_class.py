@@ -4,6 +4,9 @@ from .serializers import LogisticCompanySerializer, LogisticPriceSerializer, Rid
 
 
 class AllInfo:
+    """
+    Pending: to add model as a parameter
+    """
 
     def companies(self):
         companies = LogisticCompany.objects.all()
